@@ -27,7 +27,7 @@ services:
         volumes:
             - mysqldata:/var/lib/mysql
         secrets:
-            -mysql_secret
+            - mysql_secret
 
     # phpMyAdmin
     phpmyadmin:
