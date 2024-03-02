@@ -23,9 +23,11 @@ services:
     mariadb:
         image: mariadb:10.11
         enviroment:
-            MYSQL_RANDOM_ROOT_PASSWORD:yes
+            MYSQL_ROOT_PASSWORD: /run/secrets/mysql_secret
         volumes:
             - mysqldata:/var/lib/mysql
+        secrets:
+            -mysql_secret
 
     # phpMyAdmin
     phpmyadmin:
@@ -40,3 +42,8 @@ services:
 # Volumes
 volumes:
     mysqldata:
+
+# Passwords
+secrets:
+    mysql_secret:
+        file: ./mysql_secret.txt
