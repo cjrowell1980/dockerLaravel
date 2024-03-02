@@ -22,7 +22,7 @@ services:
     # MariaDB Service
     mariadb:
         image: mariadb:10.11
-        enviroment:
+        environment:
             MYSQL_ROOT_PASSWORD: /run/secrets/mysql_secret
         volumes:
             - mysqldata:/var/lib/mysql
